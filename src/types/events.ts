@@ -1,8 +1,17 @@
 import { ClientEvents, Awaitable, Client } from "discord.js";
 
-// I know that this is super hacky
 type LoggerFunction = (...args: unknown[]) => void
 export interface EventProps {
     client:Client
     log: LoggerFunction
+}
+
+// I know that this is super hacky
+export type EventKeys = keyof ClientEvents
+
+export type EventExec<T extends EventKeys> = (props : EventProps, ...args: ClientEvents[T]) => Awaitable<void>
+
+export interface Event<T extends EventKeys> {
+    id: T,
+    exec: EventExec<T>
 }
