@@ -6,13 +6,16 @@
   "scripts": {
     "dev": "nodemon --config nodemon.json src/index.ts",
     "build": "tsc",
-    "start": "node ."
+    "start": "node .",
+    "deploy": "cross-env IS_SCRIPT=true ts-node src/scripts/deploy",
+    "deploy-prod": "corss-env NODE_ENV=production npm run deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.11.18",
+    "cross-env": "^7.0.3",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.20",
