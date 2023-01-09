@@ -1,6 +1,6 @@
-import commands from '../commands'
-import { Command } from '../types'
-import {EditReply, event, Reply} from  "../utils"
+import commands from '../../commands'
+import { Command } from '../../types'
+import {EditReply, event, Reply} from  "../../utils"
 
 // Wihtout the Flat the allCommands would have been Commands[][], now is flat
 const allCommands = commands.map(({commands}) => commands).flat()
